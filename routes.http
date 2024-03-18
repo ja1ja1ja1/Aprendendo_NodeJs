@@ -1,0 +1,27 @@
+POST http://localhost:3000/videos HTTP/1.1
+content-type: application/json
+
+{
+    "title":"video 2",
+    "description":"primeiro video",
+    "duration":1100
+}
+
+###
+
+GET http://localhost:3000/videos?search=Node
+
+###
+
+PUT http://localhost:3000/videos/c964ed04-69e8-4b61-b213-3efc3925d754
+content-type: application/json
+
+{
+    "title":"video 02",
+    "description":"segundo video",
+    "duration":1000
+}
+
+###
+
+DELETE http://localhost:3000/videos/c964ed04-69e8-4b61-b213-3efc3925d754

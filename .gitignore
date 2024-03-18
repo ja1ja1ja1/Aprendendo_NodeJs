@@ -1,0 +1,26 @@
+# Arquivos e diretórios gerados pelo npm/yarn
+node_modules/
+package-lock.json
+yarn.lock
+
+# Arquivos de logs
+logs/
+*.log
+
+# Arquivos de build
+/build
+
+# Arquivos de ambiente
+.env
+
+# Dependendo do seu editor/IDE, pode ser necessário incluir seus arquivos temporários/diretórios
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Outros arquivos/diretórios específicos do projeto
+.DS_Store
+Thumbs.db
+
+# Dependendo do ambiente de desenvolvimento, pode ser necessário adicionar arquivos/diretórios específicos
