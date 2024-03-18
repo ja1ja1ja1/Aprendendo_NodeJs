@@ -118,11 +118,13 @@ servidor.listen(porta)*/
 // mongodb.connect()
 
 import { fastify } from 'fastify'
-import { databaseMemory } from './databaseMemory.js'
+// import { databaseMemory } from './databaseMemory.js'
+import { databasePostgres } from './database-postgres.js'
 
 const server = fastify()
 
-const database = new databaseMemory()
+// const database = new databaseMemory()
+const database = new databasePostgres()
 
 //Request body
 
@@ -131,13 +133,13 @@ const database = new databaseMemory()
 // server.get("/", () => {
     
 // })
-server.post("/videos", (req,res) => {
+server.post("/videos", async (req,res) => {
 
     const { title, description, duration} = req.body
 
     // console.log(body);
 
-    database.create({
+    await database.create({
         title,
         description,
         duration
@@ -145,18 +147,18 @@ server.post("/videos", (req,res) => {
 
     return res.status(201).send()
 })
-server.get("/videos", (req) => {
+server.get("/videos", async (req) => {
     const search = req.query.search
     console.log(search);
-    const videos = database.list(search)
+    const videos = await database.list(search)
 
     return videos
 })
-server.put("/videos/:id", (req,res) => {
+server.put("/videos/:id", async (req,res) => {
     const { title, description, duration} = req.body
     const videoId = req.params.id
 
-    database.update(videoId,{
+    await database.update(videoId,{
         title,
         description,
         duration
@@ -164,15 +166,15 @@ server.put("/videos/:id", (req,res) => {
 
     return res.status(204).send()
 })
-server.delete("/videos/:id", (req,res) => {
+server.delete("/videos/:id", async (req,res) => {
     const videoId = req.params.id
 
-    database.delete(videoId)
+    await database.delete(videoId)
 
     return res.status(204).send()
 })
 
 
 server.listen({
-    port:3000
+    port:process.env.PORT ?? 3000
 })
