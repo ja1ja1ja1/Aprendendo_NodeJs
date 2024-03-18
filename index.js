@@ -130,9 +130,9 @@ const database = new databasePostgres()
 
 
 
-// server.get("/", () => {
-    
-// })
+server.get("/", (req,res) => {
+    return "olssss"
+})
 server.post("/videos", async (req,res) => {
 
     const { title, description, duration} = req.body

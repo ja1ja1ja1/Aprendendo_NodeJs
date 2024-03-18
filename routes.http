@@ -1,19 +1,19 @@
-POST http://localhost:3000/videos HTTP/1.1
+POST https://aprendendo-nodejs-5x40.onrender.com/videos
 content-type: application/json
 
 {
-    "title":"video Node",
+    "title":"video",
     "description":"primeiro video de Node",
     "duration":1000
 }
 
 ###
 
-GET http://localhost:3000/videos
+GET https://aprendendo-nodejs-5x40.onrender.com/videos
 
 ###
 
-PUT http://localhost:3000/videos/f5b13de6-1352-4a92-b0b6-a8918e09d5fd
+PUT https://aprendendo-nodejs-5x40.onrender.com/videos/f5b13de6-1352-4a92-b0b6-a8918e09d5fd
 content-type: application/json
 
 {
@@ -24,4 +24,4 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/videos/3598627e-95e5-478b-a347-f4113e8bfdca
+DELETE https://aprendendo-nodejs-5x40.onrender.com/videos/3598627e-95e5-478b-a347-f4113e8bfdca
